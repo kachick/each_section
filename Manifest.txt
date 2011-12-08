@@ -1,0 +1,7 @@
+History.rdoc
+Manifest.txt
+README.rdoc
+Rakefile
+lib/each_section.rb
+test/test_helper.rb
+test/test_each_section.rb
