@@ -1,12 +1,15 @@
-= IO::Nosey
+= each_section
 
 http://github.com/kachick/each_section
 
 == DESCRIPTION
 
 This library provides (String|IO|ARGF|StringIO)#each_section.
+
 What's "#each_section" ?
+
 In short, "wrapped #each_line".
+
 You can use Regular Expression for #each_line's separator.
 
 == SYNOPSIS
@@ -16,7 +19,7 @@ You can use Regular Expression for #each_line's separator.
 
 * basic
     string.each_section(/regexp/i) do |section|
-      do_something
+      do_something section
     end
 
 * enumerator
