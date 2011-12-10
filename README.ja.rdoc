@@ -4,11 +4,18 @@ http://github.com/kachick/each_section
 
 == DESCRIPTION
 
-This library provides (String|IO|ARGF|StringIO)#each_section and same method #sections .
+このライブラリは、 String, IO, StringIO クラスと ARGF に対し、
+#each_section と、これと同じ動きをする #setions というインスタンスメソッドを追加します。
 
-What's #each_section ?
+String やら IO 等が持っている #each_line は便利な基本メソッドですよね。
+でも、区切り文字を $/ 以外に設定するとき、個人的に不満な箇所が２つあります。
+* その時点で line と言い難い
+  -> 可読性が落ちる
+* 区切り文字に正規表現が使えない。
+  -> これが使えるだけでも簡単なパーサなら作れるのに・・・
 
-In short, #each_line with Regular Expression separator.
+というシーンが良く有りました。
+なら作ってしまえということで生まれた小物ライブラリです。
 
 == SYNOPSIS
 
@@ -28,7 +35,7 @@ In short, #each_line with Regular Expression separator.
 === Ruby
 * 1.9.3
 * 1.9.2
-* 1.8.7 ( but, this library defines Object#require_relative for compatibility )
+* 1.8.7 ( 但し、 Object#require_relative というメソッドも追加します。 )
 
 == INSTALL
 

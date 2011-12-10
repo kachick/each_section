@@ -60,7 +60,7 @@ class TestStringEachSection < Test::Unit::TestCase
   end
   
   def test_each_section_to_enum
-    enum = @string.each_section REGEXP_SEPARATER
+    enum = @string.sections REGEXP_SEPARATER
     result = enum.with_index.map{|s, i|"#{s}#{i}"}.join
     expect = SECTIONS.each.with_index.map{|s, i|"#{s}#{i}"}.join
     
@@ -84,7 +84,7 @@ class TestIOEachSection < Test::Unit::TestCase
   end
   
   def test_each_section_to_enum
-    enum = @io.each_section REGEXP_SEPARATER
+    enum = @io.sections REGEXP_SEPARATER
     result = enum.with_index.map{|s, i|"#{s}#{i}"}.join
     expect = SECTIONS.each.with_index.map{|s, i|"#{s}#{i}"}.join
     
