@@ -1,12 +1,6 @@
-# Copyright (C) 2010  Kenichi Kamiya
-
 require 'strscan'
-require_relative 'core'
 
-module EachSection
-
-
-module IOExtension
+module EachSection; module IOExtension
 
   # @param [Regexp, String] separator
   # @return [Enumerator]
@@ -39,7 +33,4 @@ module IOExtension
   
   alias_method :sections, :each_section
 
-end
-
-
-end
+end; end

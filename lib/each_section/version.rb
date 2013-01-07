@@ -1,5 +1,6 @@
 module EachSection
+
   # @return [String]
-  VERSION = '0.0.2'.freeze
-  Version = VERSION
+  VERSION = '0.0.3'.freeze
+
 end

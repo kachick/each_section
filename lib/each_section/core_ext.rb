@@ -1,5 +1,3 @@
-# Copyright (C) 2010  Kenichi Kamiya
-
 require_relative 'string'
 require_relative 'io'
 
