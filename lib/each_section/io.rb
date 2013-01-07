@@ -8,10 +8,11 @@ module EachSection
 
 module IOExtension
 
-  # @param [Regexp, String]
-  # @return [self] - no block given
+  # @param [Regexp, String] separator
+  # @return [Enumerator]
   # @yield [section]
   # @yieldparam [String] section
+  # @yieldreturn [self] - no block given
   def each_section(separator=$/, &block)
     case separator
     when Regexp
