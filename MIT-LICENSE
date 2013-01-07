@@ -1,44 +1,6 @@
-= each_section
+(The MIT X11 License)
 
-http://github.com/kachick/each_section
-
-== DESCRIPTION
-
-This library provides (String|IO|ARGF|StringIO)#each_section and same method #sections .
-
-What's #each_section ?
-
-In short, #each_line with Regular Expression separator.
-
-== SYNOPSIS
-
-* setup
-    require 'each_section'
-
-* basic
-    string.each_section /regexp/i do |section|
-      do_something section
-    end
-
-* enumerator
-    enumerator = string.sections /regexp/i
-
-== REQUIREMENTS
-
-=== Ruby
-* 1.9.3
-* 1.9.2
-* 1.8.7 ( but, this library defines Object#require_relative for compatibility )
-
-== INSTALL
-
-* sudo gem install each_section
-
-== LICENSE
-
-(The MIT License)
-
-Copyright (c) 2010  Kenichi Kamiya
+Copyright (c) 2010 Kenichi Kamiya
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
