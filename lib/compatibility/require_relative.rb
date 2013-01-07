@@ -2,6 +2,9 @@
 
 unless respond_to? :require_relative
   module RubyCompatibility192Object
+    
+    # @param [String] child
+    # @return [Boolean]
     def require_relative(child)
       from = caller.first.slice(/(.*?):\d+/, 1)
       require "#{File.dirname from}/#{child}"
