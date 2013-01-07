@@ -1,5 +1,6 @@
-$VERBOSE = true
 require File.dirname(__FILE__) + '/test_helper.rb'
+
+module Test_EachSection
 
 TEXT =<<EOD
 class MyClass
@@ -40,44 +41,46 @@ SECTIONS = [
 ',
 'end
 '
-]
+].freeze
 
-module TestableEachSection
-  REGEXP_SEPARATER = /\send\n?/
-  
-  attr_reader :reciever
-  
-  def test_each_section_with_block
-    sections = []
+  module TestableEachSection
+    REGEXP_SEPARATER = /\send\n?/
+    
+    attr_reader :reciever
+    
+    def test_each_section_with_block
+      sections = []
 
-    reciever.each_section REGEXP_SEPARATER do |str|
-      sections << str
+      reciever.each_section REGEXP_SEPARATER do |str|
+        sections << str
+      end
+      
+      assert_equal sections, SECTIONS
     end
     
-    assert_equal sections, SECTIONS
+    def test_each_section_to_enum
+      enum = reciever.sections REGEXP_SEPARATER
+      result = enum.with_index.map{|s, i|"#{s}#{i}"}.join
+      expect = SECTIONS.each.with_index.map{|s, i|"#{s}#{i}"}.join
+      
+      assert_equal result, expect
+    end
   end
-  
-  def test_each_section_to_enum
-    enum = reciever.sections REGEXP_SEPARATER
-    result = enum.with_index.map{|s, i|"#{s}#{i}"}.join
-    expect = SECTIONS.each.with_index.map{|s, i|"#{s}#{i}"}.join
+
+  class TestStringEachSection < Test::Unit::TestCase
+    include TestableEachSection
     
-    assert_equal result, expect
+    def setup
+      @reciever = TEXT
+    end
   end
-end
 
-class TestStringEachSection < Test::Unit::TestCase
-  include TestableEachSection
-  
-  def setup
-    @reciever = TEXT
+  class TestIOEachSection < Test::Unit::TestCase
+    include TestableEachSection
+    
+    def setup
+      @reciever = StringIO.new TEXT
+    end
   end
-end
 
-class TestIOEachSection < Test::Unit::TestCase
-  include TestableEachSection
-  
-  def setup
-    @reciever = StringIO.new TEXT
-  end
 end
