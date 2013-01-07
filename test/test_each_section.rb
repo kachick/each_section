@@ -42,17 +42,15 @@ SECTIONS = [
 '
 ]
 
-REGEXP_SEPARATER = /\send\n?/
-
-class TestStringEachSection < Test::Unit::TestCase
-  def setup
-    @string = TEXT
-  end
+module TestableEachSection
+  REGEXP_SEPARATER = /\send\n?/
+  
+  attr_reader :reciever
   
   def test_each_section_with_block
     sections = []
 
-    @string.each_section REGEXP_SEPARATER do |str|
+    reciever.each_section REGEXP_SEPARATER do |str|
       sections << str
     end
     
@@ -60,35 +58,26 @@ class TestStringEachSection < Test::Unit::TestCase
   end
   
   def test_each_section_to_enum
-    enum = @string.sections REGEXP_SEPARATER
+    enum = reciever.sections REGEXP_SEPARATER
     result = enum.with_index.map{|s, i|"#{s}#{i}"}.join
     expect = SECTIONS.each.with_index.map{|s, i|"#{s}#{i}"}.join
     
     assert_equal result, expect
+  end
+end
+
+class TestStringEachSection < Test::Unit::TestCase
+  include TestableEachSection
+  
+  def setup
+    @reciever = TEXT
   end
 end
 
 class TestIOEachSection < Test::Unit::TestCase
-  def setup
-    @io = StringIO.new TEXT
-  end
-
-  def test_each_section_with_block
-    sections = []
-
-    @io.each_section REGEXP_SEPARATER do |str|
-      sections << str
-    end
-    
-    assert_equal sections, SECTIONS
-  end
+  include TestableEachSection
   
-  def test_each_section_to_enum
-    enum = @io.sections REGEXP_SEPARATER
-    result = enum.with_index.map{|s, i|"#{s}#{i}"}.join
-    expect = SECTIONS.each.with_index.map{|s, i|"#{s}#{i}"}.join
-    
-    assert_equal result, expect
+  def setup
+    @reciever = StringIO.new TEXT
   end
 end
-
