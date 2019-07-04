@@ -38,7 +38,7 @@ end
 Requirements
 -------------
 
-* Ruby - [1.8.7 or later](http://travis-ci.org/#!/kachick/each_section)
+* Ruby - [2.5 or later](http://travis-ci.org/#!/kachick/each_section)
 
 Install
 -------
