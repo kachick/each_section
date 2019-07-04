@@ -1,6 +1,4 @@
 require 'stringio'
 require 'test/unit'
 
-$VERBOSE = true
-
-require File.dirname(__FILE__) + '/../lib/each_section'
+require_relative '../lib/each_section'

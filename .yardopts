@@ -1,1 +1,1 @@
---readme README.md lib/**/*.rb --exclude compatibility
+--readme README.md lib/**/*.rb
