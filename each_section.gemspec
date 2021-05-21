@@ -10,7 +10,6 @@ Gem::Specification.new do |gem|
   gem.licenses      = ['MIT']
   gem.summary       = 'each_line with Regular Expression separators'
   gem.description   = gem.summary.dup
-  gem.homepage      = 'http://kachick.github.com/each_section'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

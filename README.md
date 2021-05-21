@@ -1,6 +1,10 @@
 each_section
 ============
 
+* ***This repository is archived***
+* ***No longer maintained***
+* ***All versions have been yanked from https://rubygems.org/ for releasing valuable namespace for others***
+
 Description
 -----------
 
@@ -8,6 +12,7 @@ each_line with Regular Expression separators.
 
 String やら IO 等が持っている #each_line は便利な基本メソッドですよね。
 でも、区切り文字を $/ 以外に設定するとき、個人的に不満な箇所が２つあります。
+
 * その時点で line と言い難い
   -> 可読性が落ちる
 * 区切り文字に正規表現が使えない。
@@ -38,29 +43,7 @@ end
 Requirements
 -------------
 
-* Ruby - [2.5 or later](http://travis-ci.org/#!/kachick/each_section)
-
-Install
--------
-
-```bash
-$ gem install each_section
-```
-
-Build Status
--------------
-
-[![Build Status](https://secure.travis-ci.org/kachick/each_section.png)](http://travis-ci.org/kachick/each_section)
-
-Link
-----
-
-* [Home](http://kachick.github.com/each_section)
-* [code](https://github.com/kachick/each_section)
-* [API](http://kachick.github.com/each_section/yard/frames.html)
-* [issues](https://github.com/kachick/each_section/issues)
-* [CI](http://travis-ci.org/#!/kachick/each_section)
-* [gem](https://rubygems.org/gems/each_section)
+* Ruby - 2.5 or later
 
 License
 --------
